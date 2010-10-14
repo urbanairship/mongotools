@@ -4,7 +4,7 @@ import pymongo
 
 
 STATS_KEYS = ('collections', 'indexes', 'objects')
-SKIP_DBS = set(('local', 'admin'))
+SKIP_DBS = set(('local', 'admin', 'test'))
 
 
 def get_db_jitter(slave, master, db):
