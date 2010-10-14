@@ -22,6 +22,8 @@ def compare(slave_host, slave_port=None):
         raise Exception('%s:%s is master' % (slave_host, slave_port))
 
     dbs = set(slave.database_names()) - SKIP_DBS
+    print '%-40s %s' % ('<source>.<database>.<stat>', 'difference')
+    print '-' * 40, '-' * 10
     for source in slave.local.sources.find():
         master = pymongo.Connection(source['host'])
         for db in dbs:
